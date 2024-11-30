@@ -25,7 +25,12 @@ ctp-sys 目前支持 6.6.5.x(linux)版本， 对应 ctpapi(c++) 的生产版本:
 
 # 2024-11-30 更新
 
-增加 v6.7.2_20230913 版本，linux_64 版本
+增加 v6.7.2_20230913 版本（linux_64），可通过如下配置:
+
+```toml
+[dependencies]
+ctp-sys = { git = "https://github.com/yanxi123-com/ctp-sys", branch = "6.7.2" }
+```
 
 # 致谢
 
