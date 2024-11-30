@@ -514,7 +514,7 @@ fn main() {
     // ctp 所在目录名称
     let ctp_path = "ctp";
     // 版本
-    let ctp_version = "v6.6.5_20210924";
+    let ctp_version = "v6.7.2_20230913";
 
     // 平台名称
     let platform = if cfg!(windows) { "win" } else { "linux" };

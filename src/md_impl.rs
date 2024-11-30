@@ -131,7 +131,7 @@ fn on_rtn_for_quote_rsp(&mut self, p_for_quote_rsp : Option<&CThostFtdcForQuoteR
 
             #[derive(Clone, Debug)]
             pub struct CThostFtdcMdSpiOnFrontConnectedPacket {
-
+                
             }
             #[derive(Clone, Debug)]
             pub struct CThostFtdcMdSpiOnFrontDisconnectedPacket {
@@ -255,7 +255,7 @@ extern "C" fn spi_on_front_connected(spi: *mut CThostFtdcMdSpiFat, ) {
             vtable: *const CThostFtdcMdSpiVTable,
             pub md_spi_ptr: *mut dyn CThostFtdcMdSpi_trait,
         }
-
+        
 
         use futures::stream::Stream;
         use std::{
@@ -317,56 +317,56 @@ extern "C" fn spi_on_front_connected(spi: *mut CThostFtdcMdSpiFat, ) {
             let pp2 = pp.clone();
             (unsafe { Box::from_raw(pp2) }, pp)
         }
-
-impl CThostFtdcMdSpi_trait for CThostFtdcMdSpiStream {fn on_front_connected(&mut self, )
+        
+impl CThostFtdcMdSpi_trait for CThostFtdcMdSpiStream {fn on_front_connected(&mut self, ) 
  {
             self.inner.lock().unwrap().push(CThostFtdcMdSpiOutput::OnFrontConnected( CThostFtdcMdSpiOnFrontConnectedPacket {  } ))
                 }
-            fn on_front_disconnected(&mut self, n_reason : std::os::raw::c_int)
+            fn on_front_disconnected(&mut self, n_reason : std::os::raw::c_int) 
  {
             self.inner.lock().unwrap().push(CThostFtdcMdSpiOutput::OnFrontDisconnected( CThostFtdcMdSpiOnFrontDisconnectedPacket { n_reason:n_reason } ))
                 }
-            fn on_heart_beat_warning(&mut self, n_time_lapse : std::os::raw::c_int)
+            fn on_heart_beat_warning(&mut self, n_time_lapse : std::os::raw::c_int) 
  {
             self.inner.lock().unwrap().push(CThostFtdcMdSpiOutput::OnHeartBeatWarning( CThostFtdcMdSpiOnHeartBeatWarningPacket { n_time_lapse:n_time_lapse } ))
                 }
-            fn on_rsp_user_login(&mut self, p_rsp_user_login : Option<&CThostFtdcRspUserLoginField>,p_rsp_info : Option<&CThostFtdcRspInfoField>,n_request_id : std::os::raw::c_int,b_is_last : bool)
+            fn on_rsp_user_login(&mut self, p_rsp_user_login : Option<&CThostFtdcRspUserLoginField>,p_rsp_info : Option<&CThostFtdcRspInfoField>,n_request_id : std::os::raw::c_int,b_is_last : bool) 
  {
             self.inner.lock().unwrap().push(CThostFtdcMdSpiOutput::OnRspUserLogin( CThostFtdcMdSpiOnRspUserLoginPacket { p_rsp_user_login:p_rsp_user_login.cloned(),p_rsp_info:p_rsp_info.cloned(),n_request_id:n_request_id,b_is_last:b_is_last } ))
                 }
-            fn on_rsp_user_logout(&mut self, p_user_logout : Option<&CThostFtdcUserLogoutField>,p_rsp_info : Option<&CThostFtdcRspInfoField>,n_request_id : std::os::raw::c_int,b_is_last : bool)
+            fn on_rsp_user_logout(&mut self, p_user_logout : Option<&CThostFtdcUserLogoutField>,p_rsp_info : Option<&CThostFtdcRspInfoField>,n_request_id : std::os::raw::c_int,b_is_last : bool) 
  {
             self.inner.lock().unwrap().push(CThostFtdcMdSpiOutput::OnRspUserLogout( CThostFtdcMdSpiOnRspUserLogoutPacket { p_user_logout:p_user_logout.cloned(),p_rsp_info:p_rsp_info.cloned(),n_request_id:n_request_id,b_is_last:b_is_last } ))
                 }
-            fn on_rsp_qry_multicast_instrument(&mut self, p_multicast_instrument : Option<&CThostFtdcMulticastInstrumentField>,p_rsp_info : Option<&CThostFtdcRspInfoField>,n_request_id : std::os::raw::c_int,b_is_last : bool)
+            fn on_rsp_qry_multicast_instrument(&mut self, p_multicast_instrument : Option<&CThostFtdcMulticastInstrumentField>,p_rsp_info : Option<&CThostFtdcRspInfoField>,n_request_id : std::os::raw::c_int,b_is_last : bool) 
  {
             self.inner.lock().unwrap().push(CThostFtdcMdSpiOutput::OnRspQryMulticastInstrument( CThostFtdcMdSpiOnRspQryMulticastInstrumentPacket { p_multicast_instrument:p_multicast_instrument.cloned(),p_rsp_info:p_rsp_info.cloned(),n_request_id:n_request_id,b_is_last:b_is_last } ))
                 }
-            fn on_rsp_error(&mut self, p_rsp_info : Option<&CThostFtdcRspInfoField>,n_request_id : std::os::raw::c_int,b_is_last : bool)
+            fn on_rsp_error(&mut self, p_rsp_info : Option<&CThostFtdcRspInfoField>,n_request_id : std::os::raw::c_int,b_is_last : bool) 
  {
             self.inner.lock().unwrap().push(CThostFtdcMdSpiOutput::OnRspError( CThostFtdcMdSpiOnRspErrorPacket { p_rsp_info:p_rsp_info.cloned(),n_request_id:n_request_id,b_is_last:b_is_last } ))
                 }
-            fn on_rsp_sub_market_data(&mut self, p_specific_instrument : Option<&CThostFtdcSpecificInstrumentField>,p_rsp_info : Option<&CThostFtdcRspInfoField>,n_request_id : std::os::raw::c_int,b_is_last : bool)
+            fn on_rsp_sub_market_data(&mut self, p_specific_instrument : Option<&CThostFtdcSpecificInstrumentField>,p_rsp_info : Option<&CThostFtdcRspInfoField>,n_request_id : std::os::raw::c_int,b_is_last : bool) 
  {
             self.inner.lock().unwrap().push(CThostFtdcMdSpiOutput::OnRspSubMarketData( CThostFtdcMdSpiOnRspSubMarketDataPacket { p_specific_instrument:p_specific_instrument.cloned(),p_rsp_info:p_rsp_info.cloned(),n_request_id:n_request_id,b_is_last:b_is_last } ))
                 }
-            fn on_rsp_un_sub_market_data(&mut self, p_specific_instrument : Option<&CThostFtdcSpecificInstrumentField>,p_rsp_info : Option<&CThostFtdcRspInfoField>,n_request_id : std::os::raw::c_int,b_is_last : bool)
+            fn on_rsp_un_sub_market_data(&mut self, p_specific_instrument : Option<&CThostFtdcSpecificInstrumentField>,p_rsp_info : Option<&CThostFtdcRspInfoField>,n_request_id : std::os::raw::c_int,b_is_last : bool) 
  {
             self.inner.lock().unwrap().push(CThostFtdcMdSpiOutput::OnRspUnSubMarketData( CThostFtdcMdSpiOnRspUnSubMarketDataPacket { p_specific_instrument:p_specific_instrument.cloned(),p_rsp_info:p_rsp_info.cloned(),n_request_id:n_request_id,b_is_last:b_is_last } ))
                 }
-            fn on_rsp_sub_for_quote_rsp(&mut self, p_specific_instrument : Option<&CThostFtdcSpecificInstrumentField>,p_rsp_info : Option<&CThostFtdcRspInfoField>,n_request_id : std::os::raw::c_int,b_is_last : bool)
+            fn on_rsp_sub_for_quote_rsp(&mut self, p_specific_instrument : Option<&CThostFtdcSpecificInstrumentField>,p_rsp_info : Option<&CThostFtdcRspInfoField>,n_request_id : std::os::raw::c_int,b_is_last : bool) 
  {
             self.inner.lock().unwrap().push(CThostFtdcMdSpiOutput::OnRspSubForQuoteRsp( CThostFtdcMdSpiOnRspSubForQuoteRspPacket { p_specific_instrument:p_specific_instrument.cloned(),p_rsp_info:p_rsp_info.cloned(),n_request_id:n_request_id,b_is_last:b_is_last } ))
                 }
-            fn on_rsp_un_sub_for_quote_rsp(&mut self, p_specific_instrument : Option<&CThostFtdcSpecificInstrumentField>,p_rsp_info : Option<&CThostFtdcRspInfoField>,n_request_id : std::os::raw::c_int,b_is_last : bool)
+            fn on_rsp_un_sub_for_quote_rsp(&mut self, p_specific_instrument : Option<&CThostFtdcSpecificInstrumentField>,p_rsp_info : Option<&CThostFtdcRspInfoField>,n_request_id : std::os::raw::c_int,b_is_last : bool) 
  {
             self.inner.lock().unwrap().push(CThostFtdcMdSpiOutput::OnRspUnSubForQuoteRsp( CThostFtdcMdSpiOnRspUnSubForQuoteRspPacket { p_specific_instrument:p_specific_instrument.cloned(),p_rsp_info:p_rsp_info.cloned(),n_request_id:n_request_id,b_is_last:b_is_last } ))
                 }
-            fn on_rtn_depth_market_data(&mut self, p_depth_market_data : Option<&CThostFtdcDepthMarketDataField>)
+            fn on_rtn_depth_market_data(&mut self, p_depth_market_data : Option<&CThostFtdcDepthMarketDataField>) 
  {
             self.inner.lock().unwrap().push(CThostFtdcMdSpiOutput::OnRtnDepthMarketData( CThostFtdcMdSpiOnRtnDepthMarketDataPacket { p_depth_market_data:p_depth_market_data.cloned() } ))
                 }
-            fn on_rtn_for_quote_rsp(&mut self, p_for_quote_rsp : Option<&CThostFtdcForQuoteRspField>)
+            fn on_rtn_for_quote_rsp(&mut self, p_for_quote_rsp : Option<&CThostFtdcForQuoteRspField>) 
  {
             self.inner.lock().unwrap().push(CThostFtdcMdSpiOutput::OnRtnForQuoteRsp( CThostFtdcMdSpiOnRtnForQuoteRspPacket { p_for_quote_rsp:p_for_quote_rsp.cloned() } ))
                 }
