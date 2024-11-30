@@ -85,6 +85,6 @@ mod tests {
     #[test]
     fn get_api_version_works() {
         assert_eq!(get_api_version().is_some(), true);
-        assert_eq!("v6.6.5_20210924 14:18:43.576", get_api_version().unwrap());
+        assert_eq!("v6.7.0_20230209  9:52:16.3535", get_api_version().unwrap());
     }
 }
